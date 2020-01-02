@@ -1,0 +1,11 @@
+{
+    "template": {
+        "fileName": "template.txt",
+        "charEncoding": "utf-8"
+    },
+    "result": {
+        "suffix": "_replaced",
+        "prefix": ""
+
+    }
+}
