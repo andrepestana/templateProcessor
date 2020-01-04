@@ -3,6 +3,12 @@
         "fileName": "template.txt",
         "charEncoding": "utf-8"
     },
+    "templateFolder": {
+        "path": "test/templateFolder"
+    },
+    "resultFolder": {
+        "path": "test/result"
+    },
     "result": {
         "suffix": "_replaced",
         "prefix": ""
