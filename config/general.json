@@ -13,5 +13,8 @@
         "suffix": "",
         "prefix": ""
     },
-    "deleteResultFolder": true
+    "includeTemplateFolderInResult": false,
+    "deleteResultFolder": true,
+    "replacementsFile": "config/replacements.json",
+    "replaceFileAndDirNames": true
 }

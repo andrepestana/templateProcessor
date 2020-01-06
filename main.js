@@ -3,9 +3,9 @@ const path = require('path'),
     rimraf = require("rimraf");
 
 const CONFIG_FILE = 'config/general.json';
-const REPLACEMENTS_FILE = 'config/replacements.json';
-
 let generalConfig = JSON.parse(fs.readFileSync(CONFIG_FILE));
+
+const REPLACEMENTS_FILE = generalConfig.replacementsFile ||'config/replacements.json';
 let replacements = JSON.parse(fs.readFileSync(REPLACEMENTS_FILE));
 
 if(generalConfig.deleteResultFolder) {
@@ -35,14 +35,32 @@ function applyReplacements(file) {
       return console.log(err);
     }
 
-    let result = data;
+    let resultFile = data;
     Object.keys(replacements).forEach(function (item) {
       let re = new RegExp(item,"g");
-      result = result.replace(re, replacements[item]);
+      resultFile = resultFile.replace(re, replacements[item]);
     });
-    ensureDirectoryExistence(generalConfig.resultFolder.path + '/' + generalConfig.result.prefix + file + generalConfig.result.suffix);
-    fs.writeFile(generalConfig.resultFolder.path + '/' + generalConfig.result.prefix + file + generalConfig.result.suffix, 
-                result, 
+
+    let partialResultFilePath = '';
+    if(generalConfig.includeTemplateFolderInResult) {
+      partialResultFilePath = (generalConfig.result.prefix + file + generalConfig.result.suffix).replace(/.+?\//, '');
+    } else {
+      partialResultFilePath = (generalConfig.result.prefix + file + generalConfig.result.suffix).replace(generalConfig.templateFolder.path, '');
+    }
+    
+    let completeResultFolderName = generalConfig.resultFolder.path + '/' + partialResultFilePath;
+
+    if(generalConfig.replaceFileAndDirNames) {
+      Object.keys(replacements).forEach(function (item) {
+        let re = new RegExp(item,"g");
+        completeResultFolderName = completeResultFolderName.replace(re, replacements[item]);
+      });
+    }
+
+
+    ensureDirectoryExistence(completeResultFolderName);
+    fs.writeFile(completeResultFolderName, 
+                resultFile, 
                 generalConfig.template.charEncoding, 
                 function (err) {
       if (err) return console.log(err);
