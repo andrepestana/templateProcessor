@@ -1,5 +1,6 @@
-var path = require('path'),
-    fs = require('fs');
+const path = require('path'),
+    fs = require('fs'),
+    rimraf = require("rimraf");
 
 const CONFIG_FILE = 'config/general.json';
 const REPLACEMENTS_FILE = 'config/replacements.json';
@@ -7,6 +8,11 @@ const REPLACEMENTS_FILE = 'config/replacements.json';
 let generalConfig = JSON.parse(fs.readFileSync(CONFIG_FILE));
 let replacements = JSON.parse(fs.readFileSync(REPLACEMENTS_FILE));
 
+if(generalConfig.deleteResultFolder) {
+  if(fs.existsSync(generalConfig.resultFolder.path)) {
+    rimraf.sync(generalConfig.resultFolder.path);
+  }
+}
 
 function checkDir(basePath) {
 

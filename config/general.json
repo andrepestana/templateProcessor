@@ -10,8 +10,8 @@
         "path": "test/result"
     },
     "result": {
-        "suffix": "_replaced",
+        "suffix": "",
         "prefix": ""
-
-    }
+    },
+    "deleteResultFolder": true
 }
