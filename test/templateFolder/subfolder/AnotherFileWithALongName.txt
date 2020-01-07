@@ -1,6 +1,8 @@
 
 
+&.(this\is/a."test")[]lsjskj
 
+.abc.def.ghi.jkl.mno
 {{name}}
 {{name}}
 {{name}}

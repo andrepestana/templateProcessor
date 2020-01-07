@@ -7,6 +7,7 @@
     "test": "test"
   },
   "dependencies": {
+    "escape-string-regexp": "^2.0.0",
     "rimraf": "^3.0.0"
   },
   "devDependencies": {},

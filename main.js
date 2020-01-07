@@ -1,6 +1,7 @@
 const path = require('path'),
     fs = require('fs'),
-    rimraf = require("rimraf");
+    rimraf = require("rimraf"),
+    escapeRegExp = require("escape-string-regexp");
 
 const CONFIG_FILE = 'config/general.json';
 let generalConfig = JSON.parse(fs.readFileSync(CONFIG_FILE));
@@ -37,7 +38,7 @@ function applyReplacements(file) {
 
     let resultFile = data;
     Object.keys(replacements).forEach(function (item) {
-      let re = new RegExp(item,"g");
+      let re = new RegExp(escapeRegExp(item),"g");
       resultFile = resultFile.replace(re, replacements[item]);
     });
 
@@ -52,7 +53,7 @@ function applyReplacements(file) {
 
     if(generalConfig.replaceFileAndDirNames) {
       Object.keys(replacements).forEach(function (item) {
-        let re = new RegExp(item,"g");
+        let re = new RegExp(escapeRegExp(item),"g");
         completeResultFolderName = completeResultFolderName.replace(re, replacements[item]);
       });
     }

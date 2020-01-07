@@ -1,5 +1,8 @@
 {
     "{{name}}": "Andre",
+    "Another": "Otro",
     "{{test}}": "yay!",
-    " ": "_"
+    " ": "_",
+    "def.ghi": "pqr.stu",
+    "this\\is/a.\"test\"": "it works..."
 }
