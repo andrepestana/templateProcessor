@@ -1,6 +1,5 @@
 {
     "template": {
-        "fileName": "template.txt",
         "charEncoding": "utf-8"
     },
     "templateFolder": {
@@ -13,8 +12,9 @@
         "suffix": "",
         "prefix": ""
     },
-    "includeTemplateFolderInResult": false,
-    "deleteResultFolder": true,
-    "replacementsFile": "config/replacements.json",
-    "replaceFileAndDirNames": true
+    "replacements": {
+        "fileName": "config/replacements.json",
+        "applyToFileAndDirNames": true
+    },
+    "includeTemplateFolderInResult": false
 }

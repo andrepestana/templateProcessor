@@ -11,7 +11,11 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\main.js"
+            "program": "${workspaceFolder}\\src\\main.js",
+            // "args": [
+            //     "--template_fileName", 
+            //     "test/templateFolder/FileWithALong"
+            // ]
         }
     ]
 }
