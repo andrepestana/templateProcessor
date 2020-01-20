@@ -7,3 +7,10 @@ Andre
 Andre
 Andre
 yay!
+
+
+
+Hello, Andre. Your favorite color is blue.
+Hello, Isadora. Your favorite color is green.
+
+

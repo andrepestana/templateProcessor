@@ -4,5 +4,18 @@
     "{{test}}": "yay!",
     " ": "_",
     "def.ghi": "pqr.stu",
-    "this\\is/a.\"test\"": "it works..."
+    "this\\is/a.\"test\"": "it works...",
+    "{{subTemplate}}": {
+        "replacements": [
+            {
+                "{{replace_me1}}": "Andre",
+                "{{replace_me2}}": "blue"
+            },
+            {
+                "{{replace_me1}}": "Isadora",
+                "{{replace_me2}}": "green"
+            }
+        ],
+        "template": "Hello, {{replace_me1}}. Your favorite color is {{replace_me2}}.\n"
+    }
 }
